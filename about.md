@@ -4,12 +4,15 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+## Hello! It's nice that you are here!
 
-### More Information
+I am ruby developer, since 2017 professionally associated with Ruby on Rails.
+I don't like stagnation, I love to learn about new technologies. Author of few commercial projects, cars enthusiast, prefer MacOS than Linux.
 
-A place to include any other types of information that you'd like to include about yourself.
+## Technology stack:
+
+#Ruby, #RubyonRails, #Sinatra, #PostgreSQL, #MongoDB, #Rspec, #Capybara, #ElasticSearch, #JS, #jQuery
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[kamil.sopata@waveinit.com](mailto:kamil.sopata@waveinit.pl)

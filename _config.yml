@@ -3,13 +3,13 @@
 #
 
 # Name of your site (displayed in the header)
-name: Kamil Sopata - personal blog.
+name: kamilsdz.blog(:sometimes)
 
 # Short bio or description (displayed in the header)
-description: Ruby Developer from Cracow, PL. 
+description: Ruby Developer from Wroclaw, PL. 
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://avatars2.githubusercontent.com/u/32387758
+avatar: https://kamilsdz.github.io/images/logo.jpg
 
 #
 # Flags below are optional

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A story about how I switch from Rubymine to VIM
+title: A story about how I switched from Rubymine to VIM
 ---
 In times of great and powerful IDE's - VIM looks poor. It's a fact - my default VIM offered only 8 colours. Magic is hidden - we only need to turn it on!
 
@@ -27,7 +27,7 @@ Standard VIM is, as I said before, poor - it looks cheap. But we can change it w
 Not bad?
 
 Try to tune your VIM like I did. First of all, you have to install [Pathogen](https://github.com/tpope/vim-pathogen):
-```
+```ruby
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 ```
@@ -37,15 +37,15 @@ Thanks to that you will be able to install new plugins.
 
 ### [The Nerd Tree](https://vimawesome.com/plugin/nerdtree-red)
 It creates a files tree. Really useful. Install with:
-```
+```ruby
 cd ~/.vim/bundle
 git clone https://github.com/scrooloose/nerdtree
 ```
 and edit your vim config file to add shortcut and basic configuration:
-```
+```ruby
 vim ~/.vimrc
 ```
-```
+```ruby
 map <C-o> :NERDTreeToggle<CR>
 autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -55,12 +55,12 @@ An interesting feature is opening the file using the 'i' button on the split scr
 You can press '?' for help as well. 
 
 ### [Gruvbox](https://vimawesome.com/plugin/gruvbox) - color scheme
-```
+```ruby
 cd ~/.vim/bundle
 git clone https://github.com/morhetz/gruvbox
 ```
 and in the vimrc:
-```
+```ruby
 colorscheme gruvbox
 set background=dark
 ```
@@ -69,14 +69,14 @@ set background=dark
 Your terminal can have problem with 256 colours :) For example my iTerm2 support only 8 colours by default.
 
 I added this to vimrc:
-```
+```ruby
 let base16colorspace=256
 ```
 Then I installed [new theme](https://draculatheme.com/iterm/) for iTerm and added these lines to bash_profile:
-```
+```ruby
 vim ~/.bash_profile
 ```
-```
+```ruby
 export TERM=xterm-256color
 export CLICOLOR=1
 ```
@@ -85,12 +85,12 @@ It's better now, don't you think?
 
 ### [vim-ruby](https://vimawesome.com/plugin/vim-ruby)
 Vim-ruby provides Ruby syntax support for vim.
-```
+```ruby
 cd ~/.vim/bundle
 git clone https://github.com/vim-ruby/vim-ruby
 ```
 and make sure that these lines are at your vimrc:
-```
+```ruby
 set nocompatible
 syntax on 
 filetype on 
@@ -100,12 +100,12 @@ filetype indent plugin on
 ### [vim-definitive](https://vimawesome.com/plugin/vim-definitive)
 This hot plugin make that you can move to method definition with '\\'+'d'
 It is really useful and a lot of Rubist use RubyMine mainly because of this feature.
-```
+```ruby
 cd ~/.vim/bundle
 git clone https://github.com/misterbuckley/vim-definitive
 ```
 and add new shortcut to vimrc (you can of course set own shourtcut):
-```
+```ruby
 nnoremap <Leader>d :FindDefinition<CR>
 ```
 
@@ -115,7 +115,7 @@ nnoremap <Leader>d :FindDefinition<CR>
 {: style="text-align: center;"}
 
 You will also need the ability to quickly navigate through the files from the project. The advantage of command-t is that it was written in C, thanks to it works quite fast!
-```
+```ruby
 cd ~/.vim/bundle
 git clone https://github.com/wincent/command-t
 ```
@@ -123,21 +123,21 @@ It searches by first letters of filenames, so it's extreme easy and fast! For ex
 
 #### [ack.vim](https://vimawesome.com/plugin/ack-vim)
 Search text in files. It was written in Perl, so it's also quite fast.
-```
+```ruby
 cd ~/.vim/bundle
 git clone https://github.com/mileszs/ack.vim
-``` 
-And becouse of Ack is an external app - you must also install it. For MacOS: 
 ```
+And becouse of Ack is an external app - you must also install it. For MacOS: 
+```ruby
 brew install ack
 ```
 After installation, you can simply use :Ack to find the text, for example:
-```
+```ruby
 :Ack vimawesomepost app/
 ```
 ### [vim-autoread](https://vimawesome.com/plugin/vim-autoread)
 It's useful, when you use Rubocop Guard. If the guard corrects your code, this plugin will reload the updated file.
-```
+```ruby
 cd ~/.vim/bundle
 git clone https://github.com/djoshea/vim-autoread
 ```
@@ -149,7 +149,7 @@ In RubyMine, it was easy to see the history of a given file. I used it especiall
 ![_config.yml]({{ site.baseurl }}/images/posts/rubymine-to-vim/gdiff.png)
 {: style="text-align: center;"}
 
-```
+```ruby
 cd ~/.vim/bundle
 git clone https://github.com/tpope/vim-fugitive.git
 vim -u NONE -c "helptags vim-fugitive/doc" -c q
@@ -161,7 +161,7 @@ Is another tool to git support. It adds +/- to the new/deleted code.
 ![_config.yml]({{ site.baseurl }}/images/posts/rubymine-to-vim/gutter.png)
 {: style="text-align: center;"}
 
-```
+```ruby
 cd ~/.vim/bundle
 git clone git://github.com/airblade/vim-gitgutter.git
 ```
@@ -172,20 +172,20 @@ Must have plugin which provides a history tree for file.
 ![_config.yml]({{ site.baseurl }}/images/posts/rubymine-to-vim/undotree.png)
 {: style="text-align: center;"}
 
-```
+```ruby
 cd ~/.vim/bundle
 git clone https://github.com/mbbill/undotree
 ```
 
 It's a good idea to add a keyboard shortcut to activate it. I use Leader key  \ + h (like history). Vimrc file:
-```
+```ruby
 nnoremap <Leader>h :UndotreeToggle<CR>
 ```
 
 
 ### gitignore
 If you use GIT, you should protect your repo from adding VIM temporary files:
-```
+```ruby
 # VIM swap files
 [._]*.sw[a-p]
 [._]sw[a-p]
@@ -218,14 +218,26 @@ vim -u NONE -c "helptags vim-fugitive/doc" -c q
 
 and put this to your vimrc:
 ```
-" kamilsdz VIM setup
-
 set nocompatible
-" Initialisation de pathogen
+" Pathogen
 call pathogen#infect()
 call pathogen#helptags()
 
 set number
+
+" windows resize
+nnoremap <leader>1 :vertical resize +10<cr>
+nnoremap <leader>2 :vertical resize -10<cr>
+nnoremap <leader>3 :resize +10<cr>
+nnoremap <leader>4 :resize -10<cr>
+
+" switching windows
+map ; <C-W>k
+map ' <C-W>w
+
+" only search case sensitive if you include case
+set incsearch
+set ignorecase smartcase
 
 " Vim-ruby config:
 let ruby_operators = 1
@@ -235,6 +247,7 @@ filetype plugin indent on
 syntax on
 runtime! config/**/*.vim
 
+" Shift + enter => adds 'end'
 imap <S-CR> <CR><CR>end<Esc>-cc  " iTerm2 fix: preferences → profile → keys → add more key + → press Shift Enter in field Keyboard Shortcut → Action: Send Text with “vim” Special Char → Copy \n\nend\x1B-cc
 
 " Nerd-tree config:
@@ -252,5 +265,4 @@ nnoremap <Leader>d :FindDefinition<CR>
 
 " UndoTree config
 nnoremap <Leader>h :UndotreeToggle<CR>
-
 ``` 

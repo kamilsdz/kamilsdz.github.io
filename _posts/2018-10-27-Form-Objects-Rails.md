@@ -39,7 +39,7 @@ Let's add form object to this!
 I will use my gem to this, but feel free to write the form object class from scratch.
 
 Add this line to your Gemfile:
-``` 
+```ruby 
 gem 'active_objects'
 ```
 and then:

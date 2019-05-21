@@ -11,7 +11,7 @@ I thought that it could be good excercise to write script that will use graphs t
 The most important thing is the data. I believe that we don't need a big dataset, I think that more crucial is that data should be easy to understand.
 I prepared some simple graph for that:
 
-```
+```ruby
 graph = {}
 
 graph['London'] = {}
@@ -63,7 +63,7 @@ graph['Warsaw'] = {}
 
 How to understand this graph? It's easy - each city has some connections at certain distances, for example `graph['Zurich']['Prague'] = 683` means that from Zurich to Prague we have 683 kilometers. To make it more clear, I created visual version of this graph using [graphviz](https://graphviz.gitlab.io/).
 
-```
+```ruby
 require 'ruby-graphviz'
 
 g = GraphViz.new( :G, :type => :digraph )
@@ -91,7 +91,7 @@ If you aren't familiar with Dijkstra algorithm, I recommend reading or watching 
 
 I created the `Dijkstra` class. Please look at the code below:
 
-```
+```ruby
 class Dijkstra
   def initialize(graph, start_point, stop_point)
     @graph = graph
@@ -177,13 +177,13 @@ end
 ## How it works?
 
 We can use our class quite simple:
-```
+```ruby
 cheapest_way = Dijkstra.new(graph, 'London', 'Warsaw').find_cheapest_way
 cheapest_way.print_results
 ```
 
 as result we should see:
-```
+```ruby
 Total distance: 1676
 Way: LONDON -> HANOVER -> BERLIN -> WARSAW
 ```
@@ -195,13 +195,13 @@ We initialized class with three attributes - our graph and name (key) of startin
 Our trip starts from `London`, because of that we know four points: London's neighbors `Paris`, `Hanover`, `Zurich` and destination point `Warsaw`. We know distance to neighbors, but we don't know distance to destination point yet. In next steps algorith will be checking how it can move to other points in cheapest way.
 
 At the end our `costs` will look like this:
-```
+```ruby
 {"Paris"=>466, "Hanover"=>817, "Zurich"=>942, "Warsaw"=>1676, "Frankfurt"=>1039, "Berlin"=>1102, "Dresden"=>1183, "Prague"=>1332, "Kopenhaga"=>1541}
 ```
 We can understand them as - From start point to Paris we have 466km, to Hanover 817km, to Zurich 942km and so on.
 
 And our `parents`:
-```
+```ruby
 {"Paris"=>"London", "Hanover"=>"London", "Zurich"=>"London", "Frankfurt"=>"Paris", "Berlin"=>"Hanover", "Dresden"=>"Hanover", "Prague"=>"Dresden", "Warsaw"=>"Berlin", "Kopenhaga"=>"Berlin"}
 ```
 We have there informations about trip. Our destination was Warsaw, so we know that the previous city is Berlin and next one from Berlin is Hanover.

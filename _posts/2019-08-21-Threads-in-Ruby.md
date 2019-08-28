@@ -3,7 +3,7 @@ layout: post
 title: Threads in Ruby - when does it make sense?
 ---
 
-CRuby has a Global Lock Interpreter, that imposes certain limitations on us. I wrote about it a bit in my previous article: [Multiprocessing in Ruby ](https://naturaily.com/blog/multiprocessing-in-ruby){:rel="nofollow"}.
+CRuby has a Global Lock Interpreter, that imposes certain limitations on us. I wrote about it a bit in my previous article.
 
 But does this means that multithreading in Ruby is useless? Of course not! And in this short post I’ll show you why.
 
